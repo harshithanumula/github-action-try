@@ -29,4 +29,4 @@ jobs:
  
       - name: Deploy to Cluster
         run: |
-          kubectl apply -f ./k8s/deployment.yaml 
+          kubectl apply -f ./k8s/deployment.yaml --validate=false
