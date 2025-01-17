@@ -37,7 +37,8 @@ jobs:
  
       - name: Deploy to Cluster
         run: |
-          kubectl --kubeconfig=kubeconfig apply -f k8s/deployment.yaml --validate=false
+          # kubectl --kubeconfig=kubeconfig apply -f k8s/deployment.yaml --validate=false
+          kubectl --kubeconfig=kubeconfig apply -f k8s/deployment.yaml --validate=false --request-timeout=60s
 
       # - name: Deploy to Cluster
       #   run: |
