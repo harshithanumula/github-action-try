@@ -24,14 +24,14 @@ jobs:
           docker build -t anumulaharshith/example-app:latest .
           docker push anumulaharshith/example-app:latest
  
-      - name: Set up Kubeconfig
-        run: |
-          echo "${{ secrets.KUBECONFIG }}" > kubeconfig
-          kubectl --kubeconfig=kubeconfig config use-context kubernetes-admin@kubernetes
       # - name: Set up Kubeconfig
       #   run: |
-      #     echo "${{ secrets.KUBECONFIG }}" | base64 --decode > kubeconfig
+      #     echo "${{ secrets.KUBECONFIG }}" > kubeconfig
       #     kubectl --kubeconfig=kubeconfig config use-context kubernetes-admin@kubernetes
+      - name: Set up Kubeconfig
+        run: |
+          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > kubeconfig
+          kubectl --kubeconfig=kubeconfig config use-context kubernetes-admin@kubernetes
 
         
  
